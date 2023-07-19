@@ -1,0 +1,18 @@
+.popup__form-data-error_active {
+  display: flex;
+  flex-wrap: wrap;
+  width: 238px;
+  margin: 0 auto 10px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FF0000;
+  visibility: visible;
+  min-height: 30px;
+}
+
+@media screen and (min-width: 768px){
+  .popup__form-data-error_active {
+    width: 358px;
+  }
+}

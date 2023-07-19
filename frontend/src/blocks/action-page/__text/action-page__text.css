@@ -1,0 +1,14 @@
+.action-page__text{
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #FFF;
+  margin: 20px auto 0;
+}
+
+@media screen and (min-width: 900px){
+  .action-page__text{
+    margin-top: 15px;
+  }
+}

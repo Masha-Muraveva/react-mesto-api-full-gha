@@ -1,0 +1,12 @@
+.profile__user {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+  
+@media screen and (min-width: 619px){
+  .profile__user {
+    flex-direction: row;
+    margin: 0;
+  }
+}

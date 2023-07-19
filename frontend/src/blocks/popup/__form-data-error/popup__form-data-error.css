@@ -1,0 +1,6 @@
+.popup__form-data-error {
+    visibility: hidden;
+    margin-bottom: 10px;
+    display: block;
+    min-height: 30px;
+}

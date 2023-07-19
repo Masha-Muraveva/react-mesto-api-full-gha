@@ -1,0 +1,9 @@
+.popup_type_tooltip {
+  /*width: 280px;*/
+}
+
+@media screen and (min-width: 900px){
+  .popup_type_tooltip {
+    /*width: 280px;*/
+  }
+}

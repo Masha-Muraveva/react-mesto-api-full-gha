@@ -1,0 +1,16 @@
+.popup__photo-content {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  min-width: 240px;
+  margin: auto 40px;
+  max-width: 75vw;
+  max-height: 75vh;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 768px){
+  .popup__photo-content {
+    min-width: 433px;
+  }
+}

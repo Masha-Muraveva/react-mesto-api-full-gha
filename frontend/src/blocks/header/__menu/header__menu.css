@@ -1,0 +1,18 @@
+.header__menu {
+  display: flex;
+  align-items: right;
+  flex-direction: column;
+  text-align: right;
+}
+
+@media screen and (min-width: 619px){
+  .header__menu {
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 900px){
+  .header__menu {
+    align-items: center;
+  }
+}

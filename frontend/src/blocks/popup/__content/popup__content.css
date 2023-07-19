@@ -1,0 +1,17 @@
+.popup__content {
+  width: 282px;
+  background-color: #fff;
+  margin: auto;
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-family: 'Inter', Arial, sans-serif;
+}
+  
+@media screen and (min-width: 768px){
+  .popup__content {
+    width: 430px;
+  }
+}

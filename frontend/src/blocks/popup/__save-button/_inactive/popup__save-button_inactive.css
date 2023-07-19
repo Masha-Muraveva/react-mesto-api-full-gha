@@ -1,0 +1,27 @@
+.popup__save-button_inactive {
+  all: unset;
+  background-color: #fff;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #000;
+  opacity: 0.2;
+  width: 238px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  border-radius: 2px;
+  border: 1px solid #000000;
+}
+  
+@media screen and (min-width: 768px){
+    .popup__save-button_inactive {
+    width: 358px;
+    height: 50px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
