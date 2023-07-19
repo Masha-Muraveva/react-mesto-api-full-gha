@@ -12,6 +12,6 @@
 
 IP-адрес 158.160.54.5
 
-Frontend https://mesto.masha-muraveva.nomoredomains.xyz/users
+Frontend https://mesto.masha-muraveva.nomoredomains.xyz
 
-Backend https://api.mesto.masha-muraveva.nomoredomains.xyz/users
+Backend https://api.mesto.masha-muraveva.nomoredomains.xyz
