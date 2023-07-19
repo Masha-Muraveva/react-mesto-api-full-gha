@@ -13,25 +13,25 @@ function Header(props) {
           <Route 
             path="/"
             element={
-              <Link className="header__link" onClick={props.onSignOut} to="/sign-in">
+              <Link className="header__link" onClick={props.onSignOut} to="/signin">
                 Выйти
               </Link>
             }  
           />
 
           <Route 
-            path="/sign-in"
+            path="/signin"
             element={
-              <Link className="header__link" to="/sign-up">
+              <Link className="header__link" to="/signup">
                 Регистрация
               </Link>
             }
           />
 
           <Route 
-            path="/sign-up"
+            path="/signup"
             element={
-              <Link className="header__link" to="/sign-in">
+              <Link className="header__link" to="/signin">
                 Войти
               </Link>
             }

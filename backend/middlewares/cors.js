@@ -5,6 +5,7 @@ const allowedCors = [
   'http://mesto.masha-muraveva.nomoredomains.xyz',
   'https://localhost:3000',
   'http://localhost:3000',
+  'localhost:3000',
 ];
 
 module.exports = (req, res, next) => {
@@ -12,6 +13,8 @@ module.exports = (req, res, next) => {
   const { method } = req;
   const requestHeaders = req.headers['access-control-request-headers'];
   const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
+
+  res.header('Access-Control-Allow-Credentials', true);
 
   if (allowedCors.includes(origin)) {
     res.header('Access-Control-Allow-Origin', origin);

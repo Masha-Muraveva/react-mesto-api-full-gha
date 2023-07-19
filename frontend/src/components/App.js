@@ -174,7 +174,7 @@ function App() {
         })
         setIsInfoTooltipPopupOpen(true);
         setErrorRegistration(true);
-        navigate('/sign-in', { replace: true });
+        navigate('/signin', { replace: true });
       })
       .catch((error) => {
         setIsInfoTooltipPopupOpen(true);
@@ -230,7 +230,7 @@ function App() {
             />} />
             
             <Route
-              path='/sign-in'
+              path='/signin'
               element={
                 <Login
                   onChange={ handleChangeInput }
@@ -239,7 +239,7 @@ function App() {
             />
             
             <Route
-              path='/sign-up'
+              path='/signup'
               element={
                 <Register
                   onSubmit={handleSubmitRegister}

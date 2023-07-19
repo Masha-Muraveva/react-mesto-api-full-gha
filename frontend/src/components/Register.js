@@ -19,7 +19,7 @@ function Register(props) {
         password={formValue.password}
       />
       <span className="action-page__text">Уже зарегистрированы? 
-        <Link ßto="/sign-in" className="action-page__login-link">
+        <Link to="/signin" className="action-page__login-link">
           Войти
         </Link>
       </span>
