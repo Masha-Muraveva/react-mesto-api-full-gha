@@ -80,10 +80,9 @@ class Api {
 }
 
 const api = new Api ({
-  url: "https://mesto.nomoreparties.co/v1/cohort-58/",
+  url: "https://api.mesto.masha-muraveva.nomoredomains.xyz",
   headers: {
-    'Content-Type': 'application/json',
-    authorization: "e7e159e0-1a57-4256-b037-c6c3fe904269",
+    'Content-Type': 'application/json'
   }
 })
 
