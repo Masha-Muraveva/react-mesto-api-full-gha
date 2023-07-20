@@ -3,7 +3,6 @@ import Card from "./Card.js";
 import CurrentUserContext from "../contexts/CurrentUserContext.js";
 
 function Main({onEditProfile, onEditAvatar, onAddPlace, onCardClick, onCardLike, onCardDelete, cards}) {
-  
   const currentUser = React.useContext(CurrentUserContext);
 
   return (
@@ -27,11 +26,8 @@ function Main({onEditProfile, onEditAvatar, onAddPlace, onCardClick, onCardLike,
         <ul className="elements__list">
           {cards.map((card) => {
             return(
-              <Card
+               card && <Card
                 key={card._id}
-                link={card.link}
-                name={card.name}
-                likes={card.likes.length}
                 card={card}
                 onCardClick={ onCardClick }
                 onCardLike={ onCardLike }

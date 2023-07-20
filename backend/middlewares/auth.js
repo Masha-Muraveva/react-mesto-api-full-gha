@@ -13,7 +13,7 @@ module.exports.checkAuthorizedUser = (req, res, next) => {
   const { authorization } = req.headers;
 
   if (!authorization || !authorization.startsWith('Bearer ')) {
-    throw new Unauthorized('Вы не авторизованы, нельзя выполнить действие');
+    throw new Unauthorized('1Вы не авторизованы, нельзя выполнить действие');
   }
   const token = extractBearerToken(authorization);
   let payload;

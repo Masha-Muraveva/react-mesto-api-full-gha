@@ -70,7 +70,7 @@ class Api {
   }
 
   changeLikeCardStatus(cardId, isLiked) {
-    return fetch(`${this._url}/cards/likes/${cardId}`, {
+    return fetch(`${this._url}/cards/${cardId}/likes`, {
       method: (isLiked ? "PUT" : "DELETE"),
       headers: this._headers,
     })
@@ -79,10 +79,13 @@ class Api {
 
 }
 
+const token = localStorage.getItem("jwt");
+
 const api = new Api ({
   url: "https://api.mesto.masha-muraveva.nomoredomains.xyz",
   headers: {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    "Authorization": `Bearer ${token}`
   }
 })
 

@@ -40,7 +40,7 @@ function App() {
           if (res) {
             setLoggedIn(true);
             navigate('/', { replace: true })
-            setEmail(res.data.email);
+            setEmail(res.email);
           }
         })
         .catch((err) => console.log(err))
@@ -52,14 +52,14 @@ function App() {
     loggedIn &&
       api.getUserInfo()
         .then((userData) => {
-          setCurrentUser(userData);
+          setCurrentUser(userData.user);
         })
         .catch(error => {
           console.log(`Ошибка: ${error}`);
         })
       api.getInitialCards()
         .then((cards) => {
-          setCards(cards)
+          setCards(cards.data)
         })
           .catch((error) => {
             console.log(`Ошибка: ${error}`);
@@ -93,7 +93,7 @@ function App() {
   function handleUpdateUser(user) {
     api.editUserInfo(user)
       .then((user) => {
-        setCurrentUser(user);
+        setCurrentUser(user.user);
         closeAllPopups();
       })
         .catch((error) => {
@@ -104,7 +104,7 @@ function App() {
   function handleUpdateAvatar(avatar) {
     api.editAvatar(avatar)
       .then((avatar) => {
-        setCurrentUser(avatar);
+        setCurrentUser(avatar.user);
         closeAllPopups();
       })
         .catch((error) => {
@@ -115,8 +115,11 @@ function App() {
   function handleAddPlaceSubmit(newCard) {
     api.addNewCards(newCard)
       .then((newCard) => {
+        console.log(newCard);
         setCards([newCard, ...cards]);
+        console.log(cards);
         closeAllPopups();
+        console.log('alalala')
       })
         .catch((error) => {
           console.log(`Ошибка: ${error}`);
@@ -128,7 +131,7 @@ function App() {
     
     api.changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
-        setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
+        setCards((state) => state.map((c) => c._id === card._id ? newCard.data : c));
       })
         .catch((error) => {
           console.log(`Ошибка: ${error}`);
