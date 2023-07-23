@@ -8,6 +8,8 @@ const { errors } = require('celebrate');
 const errorHandler = require('./middlewares/errorHandler');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const cors = require('./middlewares/cors');
+const signInRouter = require('./routes/signin');
+const signUpRouter = require('./routes/signup');
 const router = require('./routes/index');
 
 const { PORT = 3000, DB_URL = 'mongodb://127.0.0.1/mestodb' } = process.env;
@@ -27,6 +29,9 @@ app.get('/crash-test', () => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
+
+app.use('/', signInRouter);
+app.use('/', signUpRouter);
 
 app.use('/', router);
 
