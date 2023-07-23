@@ -40,14 +40,14 @@ function App() {
           if (res) {
             setLoggedIn(true);
             navigate('/', { replace: true })
-            setEmail(res.email);
+            setEmail(res.user.email);
           }
         })
         .catch((err) => console.log(err))
     }
   }, 
   [navigate])
-
+// Эту ошибку я не фиксила, но пофиксив верхнюю ошибку, у меня не вылетает 401-х ошибок
   useEffect(() => {
     loggedIn &&
       api.getUserInfo()
@@ -193,6 +193,7 @@ function App() {
       .then((res) => {
         if (res.token) {
           localStorage.setItem('jwt', res.token);
+          setEmail(email);
           setForm({
             email: '',
             password: ''

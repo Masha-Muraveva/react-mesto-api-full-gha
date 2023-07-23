@@ -5,15 +5,16 @@ const Unauthorized = require('../Error/Unauthorized');
 
 const { NODE_ENV, JWT_SECRET } = process.env;
 
+// eslint-disable-next-line arrow-body-style
 const extractBearerToken = (header) => {
-  header.replace('Bearer ', '');
+  return header.replace('Bearer ', '');
 };
 
 module.exports.checkAuthorizedUser = (req, res, next) => {
   const { authorization } = req.headers;
 
   if (!authorization || !authorization.startsWith('Bearer ')) {
-    throw new Unauthorized('1Вы не авторизованы, нельзя выполнить действие');
+    throw new Unauthorized('Вы не авторизованы, нельзя выполнить действие');
   }
   const token = extractBearerToken(authorization);
   let payload;
