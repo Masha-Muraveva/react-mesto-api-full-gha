@@ -39,6 +39,7 @@ function App() {
         .then((res) => {
           if (res) {
             setLoggedIn(true);
+            api.updateToken();
             navigate('/', { replace: true })
             setEmail(res.user.email);
           }
@@ -47,23 +48,24 @@ function App() {
     }
   }, 
   [navigate])
-// Эту ошибку я не фиксила, но пофиксив верхнюю ошибку, у меня не вылетает 401-х ошибок
+
   useEffect(() => {
-    loggedIn &&
+    if (loggedIn) {
       api.getUserInfo()
-        .then((userData) => {
-          setCurrentUser(userData.user);
-        })
-        .catch(error => {
+      .then((userData) => {
+        setCurrentUser(userData.user);
+      })
+      .catch(error => {
+        console.log(`Ошибка: ${error}`);
+      });
+    api.getInitialCards()
+      .then((cards) => {
+        setCards(cards.data)
+      })
+        .catch((error) => {
           console.log(`Ошибка: ${error}`);
-        })
-      api.getInitialCards()
-        .then((cards) => {
-          setCards(cards.data)
-        })
-          .catch((error) => {
-            console.log(`Ошибка: ${error}`);
-          })
+        });
+    }
   }, [loggedIn]);
 
   function handleEditProfileClick() {
@@ -115,11 +117,8 @@ function App() {
   function handleAddPlaceSubmit(newCard) {
     api.addNewCards(newCard)
       .then((newCard) => {
-        console.log(newCard);
         setCards([newCard, ...cards]);
-        console.log(cards);
         closeAllPopups();
-        console.log('alalala')
       })
         .catch((error) => {
           console.log(`Ошибка: ${error}`);
@@ -197,7 +196,8 @@ function App() {
           setForm({
             email: '',
             password: ''
-          })
+          });
+          api.updateToken();
           setLoggedIn(true);
           navigate('/', { replace: true });
         }

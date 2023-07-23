@@ -4,6 +4,11 @@ class Api {
     this._headers = headers;
   }
 
+  updateToken() {
+    const token = localStorage.getItem("jwt");
+    this._headers.Authorization = `Bearer ${token}`;
+  }
+
   _checkResponse(response) {
     if (response.ok) {
       return response.json();
@@ -85,7 +90,7 @@ const api = new Api ({
   url: "https://api.mesto.masha-muraveva.nomoredomains.xyz",
   headers: {
     'Content-Type': 'application/json',
-    "Authorization": `Bearer ${token}`
+    'Authorization': `Bearer ${token}`
   }
 })
 
