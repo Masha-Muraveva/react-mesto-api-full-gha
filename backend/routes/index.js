@@ -7,6 +7,12 @@ const signUpRouter = require('./signup');
 const cardsRouter = require('./cards');
 const usersRouter = require('./users');
 
+router.use('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 router.use('/', signInRouter);
 router.use('/', signUpRouter);
 
